@@ -1,12 +1,13 @@
-# Hestegrøavegen 64 – gjesteguide
+# Hestegrøavegen 64 – gjesteguide V3
 
-Statisk GitHub Pages-nettside. V2 har:
-- profesjonell visuell profil uten emoji-ikoner
-- inline SVG line-icons
-- norsk/engelsk språkvalg
-- mobilnavigasjon med Ski lett tilgjengelig
-- nummerert ankomstveiledning
-- nødnummer på kontaktsiden
-- offisielle lenker til Gausta Skisenter, webkamera, Gaustabanen, Gausta og Visit Rjukan
+Designmål:
+- mer redaksjonell og profesjonell profil
+- mindre "UI-kit"/app-preg
+- ingen emoji-ikoner
+- subtil bruk av line-icons
+- strammere typografi og spacing
+- mer asymmetri og luft
+- forbedret ankomstgalleri
+- tom "Våre favoritter"-placeholder fjernet
 - badstue-placeholder beholdt
-- WiFi-passord er ikke publisert
+- WiFi-passord ikke publisert
