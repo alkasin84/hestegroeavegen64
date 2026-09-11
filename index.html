@@ -1,25 +1,101 @@
-<!doctype html><html lang="no"><head>
+<!doctype html>
+<html lang="no"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1d2a24">
 <title>Hestegrøavegen 64 · Gjesteinformasjon</title><meta name="description" content="Praktisk gjesteinformasjon for Hestegrøavegen 64 på Gausta.">
-<link rel="stylesheet" href="site.css"></head><body>
+<link rel="stylesheet" href="site.css?v=6"></head><body>
 
-<header class="topbar"><div class="wrap topbar-inner"><div class="brand-group"><a class="brand" href="index.html">Hestegrøavegen 64</a></div><nav class="nav" id="nav"><div class="nav-mobile-title" data-no="Alle sider" data-en="All pages">Alle sider</div><a href="arrival.html" data-no="Ankomst" data-en="Arrival">Ankomst</a><a href="cabin.html" data-no="Hytta" data-en="Cabin">Hytta</a><a class="winter-only" href="ski.html" data-no="Ski inn/ut" data-en="Ski in/out">Ski inn/ut</a><a href="rules.html" data-no="Husregler" data-en="House rules">Husregler</a><a href="checkout.html" data-no="Utsjekking" data-en="Check-out">Utsjekking</a><a href="area.html" data-no="Gausta" data-en="Gausta">Gausta</a><a href="contact.html" data-no="Kontakt" data-en="Contact">Kontakt</a></nav><div class="top-actions"><div class="season-switch"><button class="season-btn" data-season="summer"><svg class="mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><span data-no="Sommer" data-en="Summer">Sommer</span></button><button class="season-btn active" data-season="winter"><svg class="mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.22 6.5l15.56 9M4.22 17.5l15.56-9"/><path d="m8 4 4 4 4-4M8 20l4-4 4 4"/></svg><span data-no="Vinter" data-en="Winter">Vinter</span></button></div><div class="lang-switch" aria-label="Language"><button class="lang active" data-lang="no">NO</button><button class="lang" data-lang="en">EN</button></div><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav"><span class="menu-label" data-no="Meny" data-en="Menu">Meny</span><span class="menu-lines"><span></span><span></span><span></span></span></button></div></div></header>
+<header class="topbar">
+<div class="wrap topbar-inner">
+  <div class="brand-group"><a class="brand" href="index.html">Hestegrøavegen 64</a></div>
+  <nav class="nav" id="nav">
+    <div class="nav-mobile-title"><span data-no="Alle sider" data-en="All pages">Alle sider</span></div>
+    <a href="arrival.html" data-no="Ankomst" data-en="Arrival">Ankomst</a><a href="cabin.html" data-no="Hytta" data-en="Cabin">Hytta</a><a class="winter-only" href="ski.html" data-no="Ski inn/ut" data-en="Ski in/out">Ski inn/ut</a><a href="rules.html" data-no="Husregler" data-en="House rules">Husregler</a><a href="checkout.html" data-no="Utsjekking" data-en="Check-out">Utsjekking</a><a href="area.html" data-no="Gausta" data-en="Gausta">Gausta</a><a href="contact.html" data-no="Kontakt" data-en="Contact">Kontakt</a>
+  </nav>
+  <div class="top-actions">
+    <div class="season-switch" role="group" aria-label="Sesong">
+      <button class="season-btn" data-season="summer"><span data-no="Sommer" data-en="Summer">Sommer</span></button>
+      <button class="season-btn active" data-season="winter"><span data-no="Vinter" data-en="Winter">Vinter</span></button>
+    </div>
+    <div class="lang-switch" aria-label="Language"><button class="lang active" data-lang="no">NO</button><button class="lang" data-lang="en">EN</button></div>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav"><span class="menu-label" data-no="Meny" data-en="Menu">Meny</span><span class="hamb"><i></i><i></i><i></i></span></button>
+  </div>
+</div>
+</header>
+
 <main>
 <section class="hero"><div class="wrap hero-inner">
   <p class="kicker" data-no="Velkommen til Gausta" data-en="Welcome to Gausta">Velkommen til Gausta</p>
   <h1>Hestegrøavegen 64</h1>
-  <p class="hero-intro winter-only" data-no="Praktisk informasjon for et enkelt og godt vinteropphold på Gausta." data-en="Practical information for an easy and comfortable winter stay at Gausta.">Praktisk informasjon for et enkelt og godt vinteropphold på Gausta.</p><p class="hero-intro summer-only" data-no="Praktisk informasjon for et enkelt og godt sommeropphold på Gausta." data-en="Practical information for an easy and comfortable summer stay at Gausta.">Praktisk informasjon for et enkelt og godt sommeropphold på Gausta.</p>
+  <p class="hero-intro season-copy" data-winter-no="Praktisk informasjon for et enkelt og godt vinteropphold på Gausta." data-winter-en="Practical information for an easy and comfortable winter stay at Gausta." data-summer-no="Praktisk informasjon for et enkelt og godt sommeropphold på Gausta." data-summer-en="Practical information for an easy and comfortable summer stay at Gausta.">Praktisk informasjon for et enkelt og godt vinteropphold på Gausta.</p>
   <div class="hero-meta">
     <div><span data-no="Innsjekking" data-en="Check-in">Innsjekking</span><strong data-no="Fra 16:00" data-en="From 16:00">Fra 16:00</strong></div>
     <div><span data-no="Utsjekking" data-en="Check-out">Utsjekking</span><strong data-no="Innen 12:00" data-en="By 12:00">Innen 12:00</strong></div>
     <div><span data-no="Adresse" data-en="Address">Adresse</span><strong>Hestegrøavegen 64</strong></div>
   </div>
 </div></section>
+
+<section class="season-overview">
+  <div class="wrap">
+    <div class="season-showcase" data-season-panel="winter">
+      <div class="showcase-grid">
+        <div class="showcase-media">
+          <div class="media-card large"><img src="winter-view.jpg" alt="Vinterkveld med utsikt fra hytta"></div>
+          <div class="stack">
+            <div class="media-card"><img src="winter-night-cabin.jpg" alt="Hytta om vinteren på kvelden"></div>
+            <div class="media-card"><img src="aurora.jpg" alt="Nordlys over Gausta"></div>
+          </div>
+        </div>
+        <div class="showcase-copy">
+          <p class="kicker" data-no="Vinter på Gausta" data-en="Winter at Gausta">Vinter på Gausta</p>
+          <h2 class="section-heading" data-no="Ski, snø og rolige kvelder" data-en="Skiing, snow and quiet evenings">Ski, snø og rolige kvelder</h2>
+          <p class="lead" data-no="Hytta ligger fint til for vinterdager på Gausta, med ski inn/ut når forholdene tillater det – og peis og badstue når dere kommer inn igjen." data-en="The cabin is well placed for winter days at Gausta, with ski in/out when conditions allow – and a fireplace and sauna when you come back inside.">Hytta ligger fint til for vinterdager på Gausta, med ski inn/ut når forholdene tillater det – og peis og badstue når dere kommer inn igjen.</p>
+          <ul class="showcase-list">
+            <li data-no="Ski inn / ut med kart og enkel veiledning" data-en="Ski in / out with a map and simple guidance">Ski inn / ut med kart og enkel veiledning</li>
+            <li data-no="Alternativ rute med buss på dager med lite snø" data-en="Alternative bus route on low-snow days">Alternativ rute med buss på dager med lite snø</li>
+            <li data-no="Peis, badstue og god vinterstemning" data-en="Fireplace, sauna and a warm winter atmosphere">Peis, badstue og god vinterstemning</li>
+          </ul>
+          <div class="btnrow">
+            <a class="btn" href="ski.html" data-no="Se skiinformasjon" data-en="View ski information">Se skiinformasjon</a>
+            <a class="btn light" href="cabin.html" data-no="Se hytta" data-en="View the cabin">Se hytta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="season-showcase" data-season-panel="summer">
+      <div class="showcase-grid">
+        <div class="showcase-media">
+          <div class="media-card large"><img src="summer-deck.jpg" alt="Terrasse med utsikt om sommeren"></div>
+          <div class="stack">
+            <div class="media-card"><img src="summer-overview.jpg" alt="Sommerutsikt over hytta"></div>
+            <div class="media-card"><img src="hero-summer.jpg" alt="Hytta om sommeren"></div>
+          </div>
+        </div>
+        <div class="showcase-copy">
+          <p class="kicker" data-no="Sommer på Gausta" data-en="Summer at Gausta">Sommer på Gausta</p>
+          <h2 class="section-heading" data-no="Fjellturer og lange, lyse kvelder" data-en="Mountain hikes and long, light evenings">Fjellturer og lange, lyse kvelder</h2>
+          <p class="lead" data-no="Om sommeren er hytta en fin base for turer, Gaustatoppen og rolige dager på terrassen med utsikt over fjellet." data-en="In summer, the cabin is a comfortable base for hikes, Gaustatoppen and quiet days on the terrace with mountain views.">Om sommeren er hytta en fin base for turer, Gaustatoppen og rolige dager på terrassen med utsikt over fjellet.</p>
+          <ul class="showcase-list">
+            <li data-no="Terrasse og uteplass med fjellutsikt" data-en="Terrace and outdoor living with mountain views">Terrasse og uteplass med fjellutsikt</li>
+            <li data-no="Kort vei til turer og opplevelser på Gausta" data-en="Easy access to hikes and experiences around Gausta">Kort vei til turer og opplevelser på Gausta</li>
+            <li data-no="Hytta som rolig base mellom aktivitetene" data-en="A quiet cabin base between activities">Hytta som rolig base mellom aktivitetene</li>
+          </ul>
+          <div class="btnrow">
+            <a class="btn" href="area.html" data-no="Se Gausta" data-en="Explore Gausta">Se Gausta</a>
+            <a class="btn light" href="cabin.html" data-no="Se hytta" data-en="View the cabin">Se hytta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="home-intro"><div class="wrap">
-  <div class="section-title"><p class="kicker" data-no="Gjestehåndbok" data-en="Guest guide">Gjestehåndbok</p><h2 data-no="Det viktigste, samlet på ett sted." data-en="Everything you need, in one place.">Det viktigste, samlet på ett sted.</h2><p class="lead" data-no="Finn frem, bli kjent med hytta og få oversikt over ski, husregler og utsjekking." data-en="Find your way, get to know the cabin and see information about skiing, house rules and check-out.">Finn frem, bli kjent med hytta og få oversikt over ski, husregler og utsjekking.</p></div>
+  <div class="section-title"><p class="kicker" data-no="Gjestehåndbok" data-en="Guest guide">Gjestehåndbok</p><h2 data-no="Alt du trenger under oppholdet." data-en="Everything you need during your stay.">Alt du trenger under oppholdet.</h2><p class="lead" data-no="Ankomst, praktisk informasjon, ski, husregler og utsjekking – oversiktlig og lett tilgjengelig." data-en="Arrival, practical information, skiing, house rules and check-out – clearly organized and easy to find.">Ankomst, praktisk informasjon, ski, husregler og utsjekking – oversiktlig og lett tilgjengelig.</p></div>
   <div class="primary-grid">
     <a class="feature-card" href="arrival.html"><div class="icon-wrap"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78Zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div><div><h3 data-no="Ankomst" data-en="Arrival">Ankomst</h3><p data-no="Veibeskrivelse, parkering og innsjekking." data-en="Directions, parking and check-in.">Veibeskrivelse, parkering og innsjekking.</p><div class="card-arrow"><span data-no="Se ankomstinfo" data-en="View arrival info">Se ankomstinfo</span><span>→</span></div></div></a>
-    <a class="feature-card winter-only" href="ski.html"><div class="icon-wrap"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17c4 3 12 3 16 0"/><path d="M7 13 10 5"/><path d="m12 4 3 9"/><path d="m6 9 7-2"/><path d="m11 10 6 3"/></svg></div><div><h3 data-no="Ski inn / ut" data-en="Ski in / out">Ski inn / ut</h3><p data-no="Se traseen mellom hytta og bakken." data-en="See the route between the cabin and the slopes.">Se traseen mellom hytta og bakken.</p><div class="card-arrow"><span data-no="Se trase" data-en="View route">Se trase</span><span>→</span></div></div></a><a class="feature-card summer-only" href="area.html"><div class="icon-wrap"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 20 7-12 4 7 2-3 5 8H3Z"/></svg></div><div><h3 data-no="Sommer på Gausta" data-en="Summer at Gausta">Sommer på Gausta</h3><p data-no="Turer, Gaustatoppen og opplevelser i området." data-en="Hikes, Gaustatoppen and experiences in the area.">Turer, Gaustatoppen og opplevelser i området.</p><div class="card-arrow"><span data-no="Se aktiviteter" data-en="Explore activities">Se aktiviteter</span><span>→</span></div></div></a>
+    <a class="feature-card winter-only" href="ski.html"><div class="icon-wrap"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17c4 3 12 3 16 0"/><path d="M7 13 10 5"/><path d="m12 4 3 9"/><path d="m6 9 7-2"/><path d="m11 10 6 3"/></svg></div><div><h3 data-no="Ski inn / ut" data-en="Ski in / out">Ski inn / ut</h3><p data-no="Se traseen mellom hytta og bakken." data-en="See the route between the cabin and the slopes.">Se traseen mellom hytta og bakken.</p><div class="card-arrow"><span data-no="Se trase" data-en="View route">Se trase</span><span>→</span></div></div></a>
+    <a class="feature-card summer-only" href="area.html"><div class="icon-wrap"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 20 7-12 4 7 2-3 5 8H3Z"/></svg></div><div><h3 data-no="Sommer på Gausta" data-en="Summer at Gausta">Sommer på Gausta</h3><p data-no="Turer, Gaustatoppen og opplevelser i området." data-en="Hikes, Gaustatoppen and experiences in the area.">Turer, Gaustatoppen og opplevelser i området.</p><div class="card-arrow"><span data-no="Se aktiviteter" data-en="Explore activities">Se aktiviteter</span><span>→</span></div></div></a>
     <a class="feature-card" href="cabin.html"><div class="icon-wrap"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div><div><h3 data-no="Hytta" data-en="Cabin">Hytta</h3><p data-no="WiFi, peis, kaffe, badstue og sengetøy." data-en="WiFi, fireplace, coffee, sauna and linen.">WiFi, peis, kaffe, badstue og sengetøy.</p><div class="card-arrow"><span data-no="Praktisk info" data-en="Practical info">Praktisk info</span><span>→</span></div></div></a>
   </div>
   <div class="secondary-grid">
@@ -38,5 +114,5 @@
   </div>
 </footer>
 <nav class="bottomnav"><a class="active" href="index.html"><svg class="bottom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg><span data-no="Hjem" data-en="Home">Hjem</span></a><a href="arrival.html"><svg class="bottom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78Zm0 0L15.5 7.5"/></svg><span data-no="Ankomst" data-en="Arrival">Ankomst</span></a><a href="cabin.html"><svg class="bottom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span data-no="Hytta" data-en="Cabin">Hytta</span></a><a href="checkout.html"><svg class="bottom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M21 19V5a2 2 0 0 0-2-2h-6"/></svg><span data-no="Utsjekking" data-en="Check-out">Utsjekking</span></a><a href="contact.html"><svg class="bottom-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18"/></svg><span data-no="Kontakt" data-en="Contact">Kontakt</span></a></nav>
-<script src="site.js"></script>
+<script src="site.js?v=6"></script>
 </body></html>
