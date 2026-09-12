@@ -1,25 +1,36 @@
 
-let currentLang = localStorage.getItem('h64lang') || 'no';
-let currentSeason = localStorage.getItem('h64season') || 'winter';
+function readPreference(key){try{return localStorage.getItem(key);}catch{return null;}}
+function savePreference(key,value){try{localStorage.setItem(key,value);}catch{}}
+const supportedLanguages=['no','en','de'];
+const savedLanguage=readPreference('h64lang');
+let currentLang = supportedLanguages.includes(savedLanguage) ? savedLanguage : 'no';
+let currentSeason = readPreference('h64season') === 'summer' ? 'summer' : 'winter';
 
 function updateSeasonCopy(){
   document.querySelectorAll('.season-copy').forEach(el=>{
-    const key = `${currentSeason}${currentLang==='no' ? 'No' : 'En'}`;
+    const key = `${currentSeason}${currentLang[0].toUpperCase()+currentLang.slice(1)}`;
     if(el.dataset[key]) el.textContent = el.dataset[key];
   });
 }
 function setLang(lang){
+  if(!supportedLanguages.includes(lang)) return;
   currentLang=lang;
   document.documentElement.lang=lang;
-  localStorage.setItem('h64lang',lang);
+  savePreference('h64lang',lang);
   document.querySelectorAll('[data-no][data-en]').forEach(el=>el.textContent=el.dataset[lang]);
   document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  document.querySelectorAll('[data-alt-no][data-alt-en]').forEach(el=>el.alt=el.dataset['alt'+lang[0].toUpperCase()+lang.slice(1)]);
+  document.querySelectorAll('[data-aria-no][data-aria-en]').forEach(el=>el.setAttribute('aria-label',el.dataset['aria'+lang[0].toUpperCase()+lang.slice(1)]));
+  document.querySelectorAll('.lang').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
   updateSeasonCopy();
+  const heading=document.querySelector('h1');
+  if(heading) document.title=heading.textContent+' · '+(lang==='de'?'Gästeinformationen':lang==='en'?'Guest information':'Gjesteinformasjon');
 }
 function setSeason(season){
   currentSeason=season;
+  document.querySelectorAll('.season-btn').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.season===season)));
   document.documentElement.dataset.season=season;
-  localStorage.setItem('h64season',season);
+  savePreference('h64season',season);
   document.querySelectorAll('.season-btn').forEach(b=>b.classList.toggle('active',b.dataset.season===season));
   updateSeasonCopy();
 }
@@ -32,3 +43,18 @@ if(mb&&nav){
 }
 setSeason(currentSeason);
 setLang(currentLang);
+
+// Keep checkmarks when visiting another page; expire after a day for the next stay.
+const checkoutBoxes=Array.from(document.querySelectorAll('.checklist input[type="checkbox"]'));
+const checkoutKey='h64checkout-v1';
+if(checkoutBoxes.length){
+  try{
+    const saved=JSON.parse(readPreference(checkoutKey)||'null');
+    if(saved && Array.isArray(saved.checked) && Date.now()-saved.updated<86400000){
+      checkoutBoxes.forEach((box,i)=>box.checked=saved.checked[i]===true);
+    }
+  }catch{}
+  const saveChecks=()=>savePreference(checkoutKey,JSON.stringify({updated:Date.now(),checked:checkoutBoxes.map(box=>box.checked)}));
+  checkoutBoxes.forEach(box=>box.addEventListener('change',saveChecks));
+  document.getElementById('reset-checklist')?.addEventListener('click',()=>{checkoutBoxes.forEach(box=>box.checked=false);saveChecks();});
+}

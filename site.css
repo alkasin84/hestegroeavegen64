@@ -148,3 +148,43 @@ html[data-season="summer"] .hero:before{background:linear-gradient(180deg,rgba(1
   .sauna-photos{grid-template-columns:1fr}
   .sauna-photos img{height:300px}
 }
+
+/* Guest guide: fast access before photographs. */
+.quick-start{padding:24px 0;background:var(--paper);border-bottom:1px solid var(--line)}
+.quick-start .kicker{margin-bottom:12px}
+.quick-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.quick-link{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:10px 12px;background:var(--brand);color:white;border:1px solid var(--brand);border-radius:12px;text-decoration:none;font-size:.9rem;font-weight:650}
+.quick-link:first-child{background:transparent;color:var(--ink)}
+.quick-link:hover{background:#344a3c;color:white}
+.hero{min-height:48vh}.hero-inner{padding-top:72px}.hero h1{font-size:clamp(3rem,7vw,6rem)}
+.home-intro{padding-top:48px}.secondary-grid{margin-bottom:28px}.season-overview{padding-bottom:48px}
+.pretrip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.info-card h2{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:1.8rem;font-weight:400;line-height:1.15;margin:0 0 16px}
+.lock-guide{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;background:var(--paper);padding:30px;border:1px solid var(--line);border-radius:var(--radius)}
+.lock-guide h3{margin:0 0 8px}.lock-guide .step p{margin:0}.lock-photo{margin:0;display:flex;justify-content:center}.lock-photo img{width:auto;max-width:100%;height:auto;max-height:570px;object-fit:contain;border-radius:12px}
+.map-panel{min-width:0}.route-map{display:block;min-height:0}.route-map img{height:auto;object-fit:contain}.map-panel .btnrow{margin-top:12px}
+.cabin-gallery{margin-top:40px}.check:has(input:checked) span{color:var(--muted)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #976528;outline-offset:4px}
+button{cursor:pointer}.lang,.season-btn{min-height:32px}.lang-switch,.season-switch{height:40px}
+@media(min-width:681px) and (max-width:1250px){
+ .topbar-inner{height:64px}.nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:16px 20px 22px;box-shadow:var(--shadow);grid-template-columns:1fr 1fr;gap:0}.nav.open{display:grid}.nav-mobile-title{display:block;grid-column:1/-1;padding:4px 8px 11px;margin-bottom:6px;border-bottom:1px solid var(--line);font-size:.67rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}.nav a{padding:12px 8px;border-bottom:1px solid var(--line)}.nav a:after{display:none}.menu-btn{display:flex}
+}
+@media(max-width:680px){
+ .quick-start{padding:18px 0}.quick-links{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.quick-link{font-size:.83rem;padding:9px 6px}
+ .hero{min-height:0}.hero-inner{padding-top:52px;padding-bottom:32px}.hero h1{font-size:2.9rem;line-height:.98}.hero-meta{gap:12px}.hero-meta div{min-width:0}
+ .pretrip-grid,.lock-guide{grid-template-columns:1fr}.lock-guide{padding:20px;gap:24px}.lock-photo img{max-height:520px}
+ .season-switch,.lang-switch{height:38px}.season-btn,.lang{height:30px;min-height:30px}.home-intro{padding-top:34px}
+ .nav{max-height:calc(100dvh - 180px);overflow-y:auto}.season-overview{padding-bottom:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+
+/* Three languages with flags; keep the existing mobile header compact. */
+.lang{display:flex;align-items:center;justify-content:center;gap:4px;width:54px;min-width:54px;padding:0 3px}
+.lang-flag{font-size:1rem;line-height:1;letter-spacing:0}
+@media(max-width:680px){.lang{width:50px;min-width:50px}.topbar-inner{column-gap:8px}.season-btn{padding:0 8px}.lang-switch{min-width:0}}
+@media(min-width:681px) and (max-width:1350px){
+ .topbar-inner{height:64px}.nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:16px 20px 22px;box-shadow:var(--shadow);grid-template-columns:1fr 1fr;gap:0}.nav.open{display:grid}.nav-mobile-title{display:block;grid-column:1/-1;padding:4px 8px 11px;margin-bottom:6px;border-bottom:1px solid var(--line);font-size:.67rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}.nav a{padding:12px 8px;border-bottom:1px solid var(--line)}.nav a:after{display:none}.menu-btn{display:flex}
+}
+html[lang="de"] .nav a{font-size:.8rem}
+@media(max-width:360px){.season-btn{padding:0 5px}.lang{width:48px;min-width:48px}}
