@@ -12,6 +12,10 @@ function updateSeasonCopy(){
     if(el.dataset[key]) el.textContent = el.dataset[key];
   });
 }
+function updatePageTitle(){
+  const heading=document.querySelector(currentSeason==='summer'?'h1.summer-only':'h1.winter-only')||document.querySelector('h1');
+  if(heading) document.title=heading.textContent+' · '+(currentLang==='de'?'Gästeinformationen':currentLang==='en'?'Guest information':'Gjesteinformasjon');
+}
 function setLang(lang){
   if(!supportedLanguages.includes(lang)) return;
   currentLang=lang;
@@ -23,8 +27,7 @@ function setLang(lang){
   document.querySelectorAll('[data-aria-no][data-aria-en]').forEach(el=>el.setAttribute('aria-label',el.dataset['aria'+lang[0].toUpperCase()+lang.slice(1)]));
   document.querySelectorAll('.lang').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
   updateSeasonCopy();
-  const heading=document.querySelector('h1');
-  if(heading) document.title=heading.textContent+' · '+(lang==='de'?'Gästeinformationen':lang==='en'?'Guest information':'Gjesteinformasjon');
+  updatePageTitle();
 }
 function setSeason(season){
   currentSeason=season;
@@ -33,6 +36,7 @@ function setSeason(season){
   savePreference('h64season',season);
   document.querySelectorAll('.season-btn').forEach(b=>b.classList.toggle('active',b.dataset.season===season));
   updateSeasonCopy();
+  updatePageTitle();
 }
 document.querySelectorAll('.lang').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 document.querySelectorAll('.season-btn').forEach(b=>b.addEventListener('click',()=>setSeason(b.dataset.season)));

@@ -152,9 +152,9 @@ html[data-season="summer"] .hero:before{background:linear-gradient(180deg,rgba(1
 /* Guest guide: fast access before photographs. */
 .quick-start{padding:24px 0;background:var(--paper);border-bottom:1px solid var(--line)}
 .quick-start .kicker{margin-bottom:12px}
-.quick-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.quick-links{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .quick-link{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:10px 12px;background:var(--brand);color:white;border:1px solid var(--brand);border-radius:12px;text-decoration:none;font-size:.9rem;font-weight:650}
-.quick-link:first-child{background:transparent;color:var(--ink)}
+
 .quick-link:hover{background:#344a3c;color:white}
 .hero{min-height:48vh}.hero-inner{padding-top:72px}.hero h1{font-size:clamp(3rem,7vw,6rem)}
 .home-intro{padding-top:48px}.secondary-grid{margin-bottom:28px}.season-overview{padding-bottom:48px}
@@ -188,3 +188,21 @@ button{cursor:pointer}.lang,.season-btn{min-height:32px}.lang-switch,.season-swi
 }
 html[lang="de"] .nav a{font-size:.8rem}
 @media(max-width:360px){.season-btn{padding:0 5px}.lang{width:48px;min-width:48px}}
+
+/* Five equally styled shortcuts: three plus two on narrow screens. */
+html[data-season="winter"] .linkcard.winter-only{display:flex}
+@media(max-width:680px){
+ .quick-links{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .quick-link{grid-column:span 2;overflow-wrap:anywhere}
+ .quick-link:nth-last-child(-n+2){grid-column:span 3}
+}
+
+/* Bed widths for guests bringing their own sheets. */
+.bed-info{margin-top:24px}
+.bed-sizes{width:100%;border-collapse:collapse;margin-top:18px;font-size:.9rem;line-height:1.5}
+.bed-sizes caption{text-align:left;font-weight:700;margin-bottom:10px;font-size:1rem}
+.bed-sizes th,.bed-sizes td{text-align:left;vertical-align:top;padding:12px 8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.bed-sizes th:first-child{padding-left:0;width:38%}
+.bed-sizes thead th{font-size:.8rem;color:var(--muted)}
+.bed-sizes tbody th{font-weight:600}
+.bed-info .note strong{display:block;margin-bottom:6px}
