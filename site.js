@@ -50,7 +50,7 @@ setLang(currentLang);
 
 // Keep checkmarks when visiting another page; expire after a day for the next stay.
 const checkoutBoxes=Array.from(document.querySelectorAll('.checklist input[type="checkbox"]'));
-const checkoutKey='h64checkout-v1';
+const checkoutKey='h64checkout-v2';
 if(checkoutBoxes.length){
   try{
     const saved=JSON.parse(readPreference(checkoutKey)||'null');
