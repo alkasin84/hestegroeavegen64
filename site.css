@@ -235,3 +235,12 @@ html[data-season="winter"] .stay-links .winter-only{display:inline-flex}
  .home-page .hero-meta{margin-top:18px;gap:10px}
  .home-page footer{padding-bottom:84px}
 }
+
+/* Matching six-item mobile navigation, with room for translated labels. */
+@media(max-width:680px){
+ .bottomnav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:6px 8px max(8px,env(safe-area-inset-bottom))}
+ .bottomnav a{display:flex;align-items:center;justify-content:center;min-height:40px;padding:5px 7px;font-size:.72rem;line-height:1.25;border-radius:8px}
+ .bottomnav a.active{background:var(--soft)}
+ footer,.home-page footer{padding-bottom:130px}
+ .nav{max-height:calc(100dvh - 224px)}
+}
