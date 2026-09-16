@@ -4,7 +4,10 @@ function savePreference(key,value){try{localStorage.setItem(key,value);}catch{}}
 const supportedLanguages=['no','en','de'];
 const savedLanguage=readPreference('h64lang');
 let currentLang = supportedLanguages.includes(savedLanguage) ? savedLanguage : 'no';
-let currentSeason = readPreference('h64season') === 'summer' ? 'summer' : 'winter';
+const savedSeason = readPreference('h64season');
+const month = new Date().getMonth();
+// May through October is the default summer view; guests can always override it.
+let currentSeason = ['summer','winter'].includes(savedSeason) ? savedSeason : (month >= 4 && month <= 9 ? 'summer' : 'winter');
 
 function updateSeasonCopy(){
   document.querySelectorAll('.season-copy').forEach(el=>{
@@ -29,11 +32,11 @@ function setLang(lang){
   updateSeasonCopy();
   updatePageTitle();
 }
-function setSeason(season){
+function setSeason(season, remember = true){
   currentSeason=season;
   document.querySelectorAll('.season-btn').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.season===season)));
   document.documentElement.dataset.season=season;
-  savePreference('h64season',season);
+  if(remember) savePreference('h64season',season);
   document.querySelectorAll('.season-btn').forEach(b=>b.classList.toggle('active',b.dataset.season===season));
   updateSeasonCopy();
   updatePageTitle();
@@ -45,7 +48,7 @@ if(mb&&nav){
   mb.addEventListener('click',()=>{const open=nav.classList.toggle('open');mb.setAttribute('aria-expanded',String(open));});
   nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');mb.setAttribute('aria-expanded','false');}));
 }
-setSeason(currentSeason);
+setSeason(currentSeason, false);
 setLang(currentLang);
 
 // Keep checkmarks when visiting another page; expire after a day for the next stay.
@@ -62,3 +65,17 @@ if(checkoutBoxes.length){
   checkoutBoxes.forEach(box=>box.addEventListener('change',saveChecks));
   document.getElementById('reset-checklist')?.addEventListener('click',()=>{checkoutBoxes.forEach(box=>box.checked=false);saveChecks();});
 }
+
+// Reveal linen details when a guest follows its shortcut or a direct link.
+function revealLinen(){
+  if(location.hash === '#linen'){
+    const details=document.querySelector('#linen details');
+    if(details) details.open=true;
+  }
+}
+window.addEventListener('hashchange',revealLinen);
+document.querySelectorAll('a[href="#linen"]').forEach(a=>a.addEventListener('click',()=>{
+  const details=document.querySelector('#linen details');
+  if(details) details.open=true;
+}));
+revealLinen();

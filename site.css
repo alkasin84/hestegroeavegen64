@@ -244,3 +244,29 @@ html[data-season="winter"] .stay-links .winter-only{display:inline-flex}
  footer,.home-page footer{padding-bottom:130px}
  .nav{max-height:calc(100dvh - 224px)}
 }
+
+/* Version 6: practical answers first, with a single topic overview. */
+.pagehead{padding:30px 0 24px}.pagehead .kicker{margin-bottom:8px}
+.pagehead h1{font-size:clamp(2.2rem,4.5vw,3.5rem);margin-bottom:12px;line-height:1.08}
+.pagehead .btnrow{margin-top:16px}.content{padding-bottom:42px}
+.cabin-hub .topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border:0;background:none;overflow:visible}
+.cabin-hub .topic-grid a,.cabin-hub .topic-grid a:last-child{display:flex;align-items:center;justify-content:space-between;gap:10px;grid-column:auto;border:1px solid var(--line);border-radius:10px;padding:14px;min-height:48px;background:var(--paper)}
+.cabin-hub .topic-grid strong{font-size:.92rem;overflow-wrap:anywhere}
+.linen-details summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:600}
+.linen-details[open] summary{margin-bottom:12px}
+.linen-details summary:focus-visible{outline:3px solid #976528;outline-offset:4px}
+.info-grid{align-items:start}
+.season-showcase{margin-top:30px}.section-zero:has(> .info-card){margin-top:24px}
+#safety .info-grid{margin:18px 0}#safety .btn{margin-top:8px}
+@media(max-width:680px){
+ .topbar{position:relative}
+ .topbar-inner{height:92px;grid-template-rows:48px 44px}
+ .nav{top:92px;max-height:calc(100dvh - 206px)}
+ .pagehead{padding:22px 0 20px}.pagehead h1{font-size:2.25rem}
+ .pagehead .kicker{display:none}.pagelead{font-size:.96rem}
+ .cabin-hub .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .anchor-section{scroll-margin-top:16px}
+ .bottomnav{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .bottomnav a{min-height:44px}
+ footer,.home-page footer{padding-bottom:calc(130px + env(safe-area-inset-bottom))}
+}
