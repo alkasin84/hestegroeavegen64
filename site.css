@@ -270,3 +270,9 @@ html[data-season="winter"] .stay-links .winter-only{display:inline-flex}
  .bottomnav a{min-height:44px}
  footer,.home-page footer{padding-bottom:calc(130px + env(safe-area-inset-bottom))}
 }
+
+/* Short seasonal introduction above the Gausta links; photos stay below. */
+.gausta-intro{margin-bottom:22px}.gausta-intro .kicker{margin-bottom:6px}
+.gausta-intro .section-heading{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
+html[data-season="summer"] .gausta-intro.summer-only{display:block!important}
+.gausta-photo img{display:block;width:100%;max-height:340px;object-fit:cover}

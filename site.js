@@ -4,10 +4,19 @@ function savePreference(key,value){try{localStorage.setItem(key,value);}catch{}}
 const supportedLanguages=['no','en','de'];
 const savedLanguage=readPreference('h64lang');
 let currentLang = supportedLanguages.includes(savedLanguage) ? savedLanguage : 'no';
-const savedSeason = readPreference('h64season');
-const month = new Date().getMonth();
-// May through October is the default summer view; guests can always override it.
-let currentSeason = ['summer','winter'].includes(savedSeason) ? savedSeason : (month >= 4 && month <= 9 ? 'summer' : 'winter');
+// Only explicit choices saved by this version override the calendar.
+// Older versions also saved automatic defaults, so their key is ignored.
+const seasonChoiceKey = 'h64season-choice-v2';
+const now = new Date();
+const month = now.getMonth();
+const defaultSeason = month >= 4 && month <= 9 ? 'summer' : 'winter';
+const seasonPeriod = String(now.getFullYear() - (month < 4 ? 1 : 0)) + '-' + defaultSeason;
+let savedSeason = null;
+try {
+  const choice = JSON.parse(readPreference(seasonChoiceKey) || 'null');
+  if(choice && choice.period === seasonPeriod && ['summer','winter'].includes(choice.value)) savedSeason = choice.value;
+} catch {}
+let currentSeason = savedSeason || defaultSeason;
 
 function updateSeasonCopy(){
   document.querySelectorAll('.season-copy').forEach(el=>{
@@ -36,7 +45,7 @@ function setSeason(season, remember = true){
   currentSeason=season;
   document.querySelectorAll('.season-btn').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.season===season)));
   document.documentElement.dataset.season=season;
-  if(remember) savePreference('h64season',season);
+  if(remember) savePreference(seasonChoiceKey,JSON.stringify({value:season,period:seasonPeriod}));
   document.querySelectorAll('.season-btn').forEach(b=>b.classList.toggle('active',b.dataset.season===season));
   updateSeasonCopy();
   updatePageTitle();
@@ -66,16 +75,11 @@ if(checkoutBoxes.length){
   document.getElementById('reset-checklist')?.addEventListener('click',()=>{checkoutBoxes.forEach(box=>box.checked=false);saveChecks();});
 }
 
-// Reveal linen details when a guest follows its shortcut or a direct link.
-function revealLinen(){
-  if(location.hash === '#linen'){
-    const details=document.querySelector('#linen details');
-    if(details) details.open=true;
-  }
-}
-window.addEventListener('hashchange',revealLinen);
-document.querySelectorAll('a[href="#linen"]').forEach(a=>a.addEventListener('click',()=>{
+// Keep linen collapsed on entry, including browser back/forward restoration.
+// The shortcut scrolls to the card; the guest opens its summary explicitly.
+function closeLinenOnEntry(){
   const details=document.querySelector('#linen details');
-  if(details) details.open=true;
-}));
-revealLinen();
+  if(details) details.open=false;
+}
+closeLinenOnEntry();
+window.addEventListener('pageshow',closeLinenOnEntry);
