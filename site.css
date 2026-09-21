@@ -276,3 +276,11 @@ html[data-season="winter"] .stay-links .winter-only{display:inline-flex}
 .gausta-intro .section-heading{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
 html[data-season="summer"] .gausta-intro.summer-only{display:block!important}
 .gausta-photo img{display:block;width:100%;max-height:340px;object-fit:cover}
+
+/* Version 8: no bottom navigation on home; compact navigation elsewhere. */
+@media(max-width:680px){
+ .bottomnav{gap:2px;padding:4px 8px max(4px,env(safe-area-inset-bottom))}
+ .bottomnav a{min-height:36px;padding:3px 6px;font-size:.72rem;line-height:1.2}
+ footer{padding-bottom:calc(108px + env(safe-area-inset-bottom))}
+ .home-page footer{padding-bottom:24px}
+}
