@@ -75,11 +75,18 @@ if(checkoutBoxes.length){
   document.getElementById('reset-checklist')?.addEventListener('click',()=>{checkoutBoxes.forEach(box=>box.checked=false);saveChecks();});
 }
 
-// Keep linen collapsed on entry, including browser back/forward restoration.
-// The shortcut scrolls to the card; the guest opens its summary explicitly.
-function closeLinenOnEntry(){
-  const details=document.querySelector('#linen details');
-  if(details) details.open=false;
+// Open a guide before scrolling to it, including direct links and browser history.
+function revealGuide(hash, scroll = true){
+  let id;
+  try { id=decodeURIComponent((hash || '').slice(1)); } catch { return; }
+  const target=document.getElementById(id);
+  if(!target) return;
+  if(target.matches('details.guest-guide')) target.open=true;
+  if(scroll) requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'}));
 }
-closeLinenOnEntry();
-window.addEventListener('pageshow',closeLinenOnEntry);
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',()=>revealGuide(link.getAttribute('href')));
+});
+window.addEventListener('hashchange',()=>revealGuide(location.hash));
+window.addEventListener('pageshow',()=>revealGuide(location.hash));
+revealGuide(location.hash);
