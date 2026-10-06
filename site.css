@@ -322,3 +322,10 @@ html[data-season="summer"] .gausta-intro.summer-only{display:block!important}
 .guest-guide .photo{min-height:0}
 .guest-guide .photo img{height:auto;object-fit:contain}
 @media(max-width:680px){.guest-guide>summary{padding:17px 16px}.guest-guide .guide-content{padding:18px 16px}.back-to-topics{margin-left:16px}.hub-group .topic-grid a:last-child{grid-column:auto;border-top:1px solid var(--line)}.guest-guide{scroll-margin-top:16px}}
+
+/* Fire alarm instructions, shared by both seasons. */
+.fire-alarm-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start;margin-top:24px}
+.fire-alarm-layout figure{margin:0}.fire-alarm-layout img{display:block;width:100%;max-height:520px;object-fit:contain;border-radius:12px}
+.fire-alarm-layout figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+.fire-alarm-guide>h2{font-size:1.7rem}.fire-alarm-guide .important-step p{margin-bottom:0}
+@media(max-width:680px){.fire-alarm-layout{grid-template-columns:1fr}.fire-alarm-layout img{max-height:420px}}

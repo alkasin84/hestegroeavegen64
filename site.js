@@ -81,7 +81,12 @@ function revealGuide(hash, scroll = true){
   try { id=decodeURIComponent((hash || '').slice(1)); } catch { return; }
   const target=document.getElementById(id);
   if(!target) return;
-  if(target.matches('details.guest-guide')) target.open=true;
+  // Reveal every containing disclosure before scrolling to nested safety content.
+  let ancestor=target;
+  while(ancestor){
+    if(ancestor.matches('details')) ancestor.open=true;
+    ancestor=ancestor.parentElement;
+  }
   if(scroll) requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'}));
 }
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
