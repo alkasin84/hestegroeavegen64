@@ -293,3 +293,12 @@ html[data-season="summer"] .gausta-intro.summer-only{display:block!important}
  .page-quicknav a.active{background:var(--soft);color:var(--brand);font-weight:700}
  footer,.home-page footer{padding-bottom:max(24px,env(safe-area-inset-bottom))}
 }
+
+/* Illustrated guest instructions. */
+.appliance-guide{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper)}
+.guest-steps{padding-left:24px}.guest-steps li{padding:8px 0 12px 6px}.guest-steps p{margin:6px 0 0}
+.guide-photos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.guide-photos.single{grid-template-columns:minmax(0,440px)}
+.guide-photos figure{margin:0;min-width:0}.guide-photos img{display:block;width:100%;max-height:480px;object-fit:contain;border-radius:10px;background:var(--soft)}
+.guide-photos figcaption{font-size:.85rem;color:var(--muted);padding-top:8px}
+@media(max-width:680px){.appliance-guide{padding:18px}.guide-photos{grid-template-columns:1fr}.guide-photos img{max-height:400px}}
