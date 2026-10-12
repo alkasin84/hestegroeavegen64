@@ -1,11 +1,11 @@
-/* Guest-link attribution. Only a validated random code is sent; no other query data. */
+/* Guest-link attribution. Only a validated reference is sent; no other query data. */
 (()=>{
   const page=new URL(location.href);
   const names=['index.html','before.html','arrival.html','cabin.html','checkout.html','area.html','contact.html','ski.html','rules.html'];
   const filename=page.pathname.split('/').pop()||'index.html';
   const base=page.pathname.slice(0,page.pathname.lastIndexOf('/')+1);
   const raw=page.searchParams.get('ref');
-  const ref=/^\d{6,12}$/.test(raw||'')?raw:'';
+  const ref=/^(?:[A-Za-z][A-Za-z-]{0,31}-)?\d{6,12}$/.test(raw||'')?raw:'';
   const key='h64-analytics-excluded';
   let excluded=false;
   try{excluded=localStorage.getItem(key)==='1';}catch{}
