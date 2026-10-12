@@ -329,3 +329,5 @@ html[data-season="summer"] .gausta-intro.summer-only{display:block!important}
 .fire-alarm-layout figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
 .fire-alarm-guide>h2{font-size:1.7rem}.fire-alarm-guide .important-step p{margin-bottom:0}
 @media(max-width:680px){.fire-alarm-layout{grid-template-columns:1fr}.fire-alarm-layout img{max-height:420px}}
+
+.analytics-note{margin-top:20px;font-size:.82rem}.analytics-note summary{cursor:pointer;min-height:32px}.analytics-note p{max-width:70ch}.analytics-note button{font-size:.82rem}
