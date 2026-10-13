@@ -2,7 +2,19 @@
  const field=document.getElementById('guest-link'),status=document.getElementById('link-status');
  const usedCodes=new Set();
  const key='h64-analytics-excluded',state=document.getElementById('exclude-status');
- function refresh(){try{state.textContent=localStorage.getItem(key)==='1'?'Dine besøk telles ikke i denne nettleseren.':'Dine besøk kan bli telt i denne nettleseren.';}catch{state.textContent='Nettleseren tillater ikke lagring av dette valget.';}}
+ let excluded=false;
+ const toggle=document.getElementById('measurement-toggle');
+ function refresh(){
+  try{excluded=localStorage.getItem(key)==='1';
+   toggle.setAttribute('aria-checked',String(!excluded));
+   toggle.textContent='Besøksmåling i denne nettleseren: '+(excluded?'Av':'På');
+   state.textContent=excluded?'Dine besøk på gjestesidene måles ikke. Trykk på knappen for å slå målingen på igjen.':'Dine besøk på gjestesidene kan bli telt. Trykk på knappen for å slå målingen av.';
+  }catch{state.textContent='Nettleseren tillater ikke lagring av dette valget.';}
+ }
+ toggle.addEventListener('click',()=>{
+  try{localStorage.setItem(key,excluded?'0':'1');refresh();}catch{state.textContent='Valget kunne ikke lagres. Innstillingen er ikke endret.';}
+ });
+ window.addEventListener('storage',e=>{if(e.key===key || e.key===null)refresh();});
  document.getElementById('new-link').addEventListener('click',()=>{
   const name=document.getElementById('guest-name').value.trim();
   const label=name.replace(/Æ/g,'Ae').replace(/æ/g,'ae').replace(/Ø/g,'O').replace(/ø/g,'o').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'-');
@@ -23,7 +35,6 @@
   if(!field.value){status.textContent='Lag en lenke først.';return;}
   try{await navigator.clipboard.writeText(field.value);status.textContent='Lenken er kopiert.';}catch{field.focus();field.select();status.textContent='Marker og kopier lenken manuelt.';}
  });
- document.getElementById('exclude').addEventListener('click',()=>{try{localStorage.setItem(key,'1');refresh();}catch{state.textContent='Valget kunne ikke lagres. Dine besøk kan fortsatt bli telt.';}});
- document.getElementById('include').addEventListener('click',()=>{try{localStorage.removeItem(key);refresh();}catch{state.textContent='Valget kunne ikke endres.';}});
+ window.addEventListener('pageshow',refresh);
  refresh();
 })();
