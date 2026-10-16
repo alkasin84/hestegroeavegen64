@@ -9,7 +9,7 @@ let currentLang = supportedLanguages.includes(savedLanguage) ? savedLanguage : '
 const seasonChoiceKey = 'h64season-choice-v2';
 const now = new Date();
 const month = now.getMonth();
-const defaultSeason = month >= 4 && month <= 9 ? 'summer' : 'winter';
+const defaultSeason = month >= 4 && month <= 7 ? 'summer' : 'winter';
 const seasonPeriod = String(now.getFullYear() - (month < 4 ? 1 : 0)) + '-' + defaultSeason;
 let savedSeason = null;
 try {
